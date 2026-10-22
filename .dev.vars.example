@@ -1,0 +1,4 @@
+# Your Garmin Connect Personal API key (Garmin Connect > Settings > Personal API)
+GARMIN_API_KEY=
+# A passphrase of at least 16 characters. You type it once when connecting Claude.
+OWNER_PASSPHRASE=

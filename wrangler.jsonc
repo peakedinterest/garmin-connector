@@ -1,0 +1,25 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "garmin-connector",
+  "main": "src/index.ts",
+  "compatibility_date": "2026-10-01",
+  "compatibility_flags": ["global_fetch_strictly_public"],
+  "workers_dev": true,
+  "preview_urls": false,
+
+  // Stores sign-in records for the connector (hashed and encrypted by the
+  // OAuth library) and the cached 24-hour Garmin access token (encrypted).
+  // Wrangler creates this namespace on first deploy.
+  "kv_namespaces": [{ "binding": "OAUTH_KV" }],
+
+  "vars": {
+    // Used to work out "today" and default date ranges.
+    "TIMEZONE": "America/Toronto"
+  },
+
+  "observability": { "enabled": true }
+
+  // Secrets (set with `npx wrangler secret put <NAME>`, never stored here):
+  //   GARMIN_API_KEY    your Garmin Connect Personal API key
+  //   OWNER_PASSPHRASE  the passphrase you type once when connecting Claude
+}
